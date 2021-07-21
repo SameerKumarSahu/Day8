@@ -1,35 +1,46 @@
 package com.EmployeeWage;
 
 public class EmployeeWageComputation {
-
-	public void switchCase() {
+	
+	public void wageForMonth() {
 		//Variables
-	int empCheck=(int) (Math.random()*3);   //Using random check whether Employee is Present or Absent
-	int wagePerHour = 20;
-	int fulldayHour = 8;
-	int partTimeHour = 4;
+		int wagePerHour = 20;
+		int numWorkingDays=20;
+		int empHr=0;
+		int totalsalary=0;
+		
 			//Computation
-            switch  (empCheck) {
-	         	case 0:
-	         		System.out.println("Employee is Absent " );
-	         		break;
+		for (int day=1; day<= numWorkingDays; day++){
 
-	         	case 1:
-	         		int empFulldayWage =  wagePerHour * fulldayHour ;
-	         		System.out.println("Employee is Present and Employee fullday Wage is " + empFulldayWage);
-	         		break;
+			int empCheck=(int) (Math.random()*3);
 
-	         	case 2:
-	         		int empHalfdayWage =  wagePerHour * partTimeHour ;
-	         		System.out.println("Employee is Present and Employee half day Wage is " + empHalfdayWage);
-	         		break;
-            }
-}
+                switch  (empCheck) {
+		            case 0:
+		               	empHr=0;
+		            	break;
+
+		            case 1:
+		            	empHr=8;    //Full day hours
+						break;
+
+		            case 2:
+		            	empHr=4;	// Part time hours
+		            	break;
+                }
+                
+                int empDailyWage = empHr * wagePerHour ;   // Daily wages 
+                
+                totalsalary += empDailyWage;		//Employee Monthly Salary
+		}
+
+		System.out.println( "The total Monthly Salary of the Employee is  " + totalsalary );
+
+	}
+
 	public static void main(String [] args) {
 	
 	EmployeeWageComputation obj1 = new EmployeeWageComputation();		//Creating Objects
-		obj1.switchCase();
+		obj1.wageForMonth();
 		System.out.println("");
-
 	}
 }
