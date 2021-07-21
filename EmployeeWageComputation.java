@@ -2,21 +2,26 @@ package com.EmployeeWage;
 
 public class EmployeeWageComputation {
 	
-	public void wageForMonth() {
+	public void condition() {
 		//Variables
 		int wagePerHour = 20;
+		int maxHrinMonth= 100;
 		int numWorkingDays=20;
-		int empHr=0;
 		int totalsalary=0;
-		
-			//Computation
-		for (int day=1; day<= numWorkingDays; day++){
+		int totalEmpHr=0;
+		int totalWorkingDay=0;
+		int empHr=0;
 
-			int empCheck=(int) (Math.random()*3);
+		//Computation
+		while (totalEmpHr < maxHrinMonth && totalWorkingDay < numWorkingDays ) {
 
-                switch  (empCheck) {
+				totalWorkingDay++;
+
+				int empCheck=(int) (Math.random()*3);
+
+				    switch  (empCheck) {
 		            case 0:
-		               	empHr=0;
+		            	empHr=0;
 		            	break;
 
 		            case 1:
@@ -26,21 +31,23 @@ public class EmployeeWageComputation {
 		            case 2:
 		            	empHr=4;	// Part time hours
 		            	break;
-                }
-                
-                int empDailyWage = empHr * wagePerHour ;   // Daily wages 
-                
-                totalsalary += empDailyWage;		//Employee Monthly Salary
+               }
+
+                	totalEmpHr+= empHr ;
+			}
+				 	totalsalary = totalEmpHr * wagePerHour;
+				
+					System.out.println( "Total Number of Working days in a Month is  " + totalWorkingDay );
+					System.out.println( "Total Employee Hour in a month  is  " + totalEmpHr );
+					System.out.println( "The total Monthly Salary of the Employee is  " + totalsalary );
+
 		}
-
-		System.out.println( "The total Monthly Salary of the Employee is  " + totalsalary );
-
-	}
 
 	public static void main(String [] args) {
 	
 	EmployeeWageComputation obj1 = new EmployeeWageComputation();		//Creating Objects
-		obj1.wageForMonth();
+		obj1.condition();
 		System.out.println("");
+	
 	}
 }
