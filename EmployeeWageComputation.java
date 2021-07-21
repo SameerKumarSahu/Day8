@@ -2,34 +2,34 @@ package com.EmployeeWage;
 
 public class EmployeeWageComputation {
 
-	public int addingParttime() {
+	public void switchCase() {
 		//Variables
-	int isFullTime=1;
-	int isPartTime=2;
 	int empCheck=(int) (Math.random()*3);   //Using random check whether Employee is Present or Absent
-	int empFulltimeRatePerHr=8;
-	int empPartTimeRatePerHr=4;
-	int empHrs=20;
-	//Computation
-	if (empCheck==isFullTime) {
-		int empDailyWage = empFulltimeRatePerHr * empHrs;      // Employee Fullday Salary
-		System.out.println("Employee Fullday Wage is "+ empDailyWage);
-	}
-	else if (empCheck==isPartTime) {
-		int empDailyWage = empPartTimeRatePerHr * empHrs;
-		System.out.println("Employee Halfday Wage is "+ empDailyWage);    //Employee Halfday Salary
-	}
-	else {
-		System.out.println("Employee is Absent");
-	}	
-	return 0;
-	}
+	int wagePerHour = 20;
+	int fulldayHour = 8;
+	int partTimeHour = 4;
+			//Computation
+            switch  (empCheck) {
+	         	case 0:
+	         		System.out.println("Employee is Absent " );
+	         		break;
+
+	         	case 1:
+	         		int empFulldayWage =  wagePerHour * fulldayHour ;
+	         		System.out.println("Employee is Present and Employee fullday Wage is " + empFulldayWage);
+	         		break;
+
+	         	case 2:
+	         		int empHalfdayWage =  wagePerHour * partTimeHour ;
+	         		System.out.println("Employee is Present and Employee half day Wage is " + empHalfdayWage);
+	         		break;
+            }
+}
 	public static void main(String [] args) {
 	
 	EmployeeWageComputation obj1 = new EmployeeWageComputation();		//Creating Objects
-
-	obj1.addingParttime(); 
-	System.out.println("");
+		obj1.switchCase();
+		System.out.println("");
 
 	}
 }
