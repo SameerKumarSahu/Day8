@@ -41,18 +41,18 @@ public class EmployeeWageComputation {
 		return totalSalary;
 	}
 
-	public static void main(String [] args) {
-		Scanner sc = new Scanner(System.in);
-	EmployeeWageComputation obj1 = new EmployeeWageComputation();		//Creating Objects
+	public static void main(String[] args) {
 		
-		System.out.println("Enter Wage Per Hours :-");
-		int wagePerHour = sc.nextInt();
-		System.out.println("Enter the Maximun Hours in a Month :-");
-		int maxHrinMonth= sc.nextInt();
-		System.out.println("Enter Number of Working Day in a Month :-");
-		int numWorkingDays= sc.nextInt();
+		EmployeeWageComputation Dmart = new EmployeeWageComputation();				//Creating Object
+		Dmart.computeEmpWage(100,150,25);		// Set the values of wagePerHour,maxHrinMonth and numWorkingDays
+		System.out.println(" ");
 		
-		obj1.computeEmpWage(wagePerHour,maxHrinMonth,numWorkingDays);
-		System.out.println("");
+		EmployeeWageComputation Vishal = new EmployeeWageComputation();
+		Vishal.computeEmpWage(150,200,22);
+		System.out.println(" ");
+		
+		EmployeeWageComputation Bigbazar = new EmployeeWageComputation();
+		Bigbazar.computeEmpWage(200,120,26);
 	}
+
 }
