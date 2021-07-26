@@ -1,10 +1,23 @@
 package com.EmployeeWage;
 
-import java.util.Scanner;
-
 public class EmployeeWageComputation {
+	static final int IS_FUllTime = 1;
+     static final int IS_PARTTIME = 2;
+      static String companyName;
+      int maxHrinMonth;
+      int numWorkingDays;
+      int wagePerHour;
 	
-	public int computeEmpWage(int wagePerHour,int maxHrinMonth,int numWorkingDays) {
+    
+	public EmployeeWageComputation(String companyName, int maxHrinMonth, int numWorkingDays, int wagePerHour) {
+		super();
+		this.companyName = companyName;
+		this.maxHrinMonth = maxHrinMonth;
+		this.numWorkingDays = numWorkingDays;
+		this.wagePerHour = wagePerHour;
+	}
+
+	public int computeEmpWage() {
 		//Variables
 		int totalSalary=0;
 		int totalEmpHr=0;
@@ -12,12 +25,13 @@ public class EmployeeWageComputation {
 		int empHr=0;
 	
 		//Computation
-		while (totalEmpHr < maxHrinMonth && totalWorkingDay < numWorkingDays ) {
+		while (totalEmpHr <= maxHrinMonth && totalWorkingDay < numWorkingDays ) {
 				totalWorkingDay++;
 				int empCheck=(int) (Math.random()*3);
 
 				switch  (empCheck) {
 		            case 0:
+		            	
 		               	empHr=0;
 		            	break;
 
@@ -34,28 +48,28 @@ public class EmployeeWageComputation {
 			}
 				 	totalSalary = totalEmpHr * wagePerHour;
 				
-					System.out.println( "Total Number of Working days in a Month is  " + totalWorkingDay );
-					System.out.println( "Total Employee Hour in a month  is  " + totalEmpHr );
-					System.out.println( "The total Monthly Salary of the Employee is  " + totalSalary+"\n" );
+					
+					return totalSalary;
 
-		return totalSalary;
+		
 	}
 
 	public static void main(String[] args) {
 		
-		EmployeeWageComputation Dmart = new EmployeeWageComputation();				//Creating Object
-		System.out.println("Employee Wage Calculation for Dmart"+"\n");
-		Dmart.computeEmpWage(100,150,25);		// Set the values of wagePerHour,maxHrinMonth and numWorkingDays
+		EmployeeWageComputation company1 = new EmployeeWageComputation("Dmart",150,23,60);				//Creating Object
+		company1.computeEmpWage();
+		int a=company1.computeEmpWage();
+		System.out.println( "The total Monthly Salary of "+ companyName + " employee is  " + a+"\n" );
 		
+		EmployeeWageComputation company2 = new EmployeeWageComputation("Relience",150,200,22);
+		company2.computeEmpWage();
+		int b=company2.computeEmpWage();
+		System.out.println( "The total Monthly Salary of "+ companyName + " Employee is  " + b+"\n" );
 		
-		EmployeeWageComputation Vishal = new EmployeeWageComputation();
-		System.out.println("Employee Wage Calculation for Vishal"+"\n");
-		Vishal.computeEmpWage(150,200,22);
-		System.out.println(" ");
-		
-		EmployeeWageComputation Bigbazar = new EmployeeWageComputation();
-		System.out.println("Employee Wage Calculation for Bigbazar"+"\n");
-		Bigbazar.computeEmpWage(200,120,26);
+		EmployeeWageComputation company3 = new EmployeeWageComputation("V2",200,120,26);
+		company3.computeEmpWage();
+		int c=company3.computeEmpWage();
+		System.out.println( "The total Monthly Salary of "+ companyName + " Employee is  " + c+"\n" );
 	}
 
 }
